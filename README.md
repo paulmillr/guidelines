@@ -52,9 +52,13 @@ Every time a method is changed, it should also be changed in other places.
 
 ## TODO
 
-- Coverage calculation. Can be done by switching from micro-should to jest
-- CI utility which compares NPM code to GitHub
-- CI utility which checks NPM for malware
 - Fuzzing documentation
 - CI server set-up documentation
 - minified file build & upload (update JSBT)
+
+New CI tasks:
+
+- Calculate coverage. Can be done by switching from micro-should to jest
+- Compare NPM code to GitHub
+- Scan NPM for malware
+- Check for performance regressions, compare with previous commits / releases
