@@ -24,8 +24,17 @@ After that, 6. pull requests to consumers (such as ethereumjs-monorepo) can also
 
 ## Coding practices
 
-- There should be no bigint literals. Instead of `123n`, use `BigInt(123)` or `BigInt('123')`
+- Don't use bigint literals: instead of `123n`, use `BigInt(123)` or `BigInt('123')`
     - For compatibility with React Native and others
+- Don't use array destruction, such as `let [a, b] = arr`
+    - It overloads GC when used often, because it calls iterator protocol
+    - Object destruction `{a, b} = obj` is fine
+- Minimize `for-of`
+    - Also uses iterator protocol, sometimes slow
+- Minimize backtick quotes
+    - Unfriendly to minifiers, sometimes even unsupported in subtle ways
+- Don't use `\n` in strings: prefer `String.fromCharCode(10)`
+    - Unfriendly to minifiers
 - Typescript and prettier updates should be limited to once per 3-6 months
     - Their version diffs should be sanity-checked
 - Helper packages are used to simplify development
