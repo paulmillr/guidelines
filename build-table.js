@@ -1,4 +1,5 @@
 // github to JSR package map
+const user = 'paulmillr';
 const gh_jsr = {
   'noble-ciphers': '@noble/ciphers',
   'noble-curves': '@noble/curves',
@@ -20,24 +21,30 @@ const gh_jsr = {
   'micro-ftch': '',
   'qr': '@paulmillr/qr',
   'micro-sr25519': ''
+};
+const misc_list = {
+  'noble-hashes': gh_action('noble-hashes', 'test-slow.yml', 'Run slow tests')
 }
-function table(list) {
+function buildTable(list) {
   const strs = list.map(badges).join('\n');
   console.log(`
-| Project | Status | JSR |
-|---------|--------|-----|
+| Project | Status | JSR | Misc |
+|---------|--------|-----|------|
 ${strs}
 `);
 }
 
-function badges(pkg) {
-  const jsr_name = gh_jsr[pkg];
-
-  const ci = `[![Run JS tests](https://github.com/paulmillr/${pkg}/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/${pkg}/actions/workflows/test-js.yml)`;
-
-  const jsr = jsr_name ? `[![JSR version](https://jsr.io/badges/${jsr_name})](https://jsr.io/${jsr_name}) [![JSR Score](https://jsr.io/badges/${jsr_name}/score)](https://jsr.io/${jsr_name})` : '';
-
-  return `| ${pkg} | ${ci} | ${jsr} |`;
+function gh_action(pkg, actionFile, name = '') {
+  return `[![${name}](https://github.com/${user}/${pkg}/actions/workflows/${actionFile}/badge.svg)](https://github.com/${user}/${pkg}/actions/workflows/${actionFile})`
 }
 
-table(Object.keys(gh_jsr));
+function badges(pkg) {
+  const jsr_name = gh_jsr[pkg];
+  const ci = gh_action(pkg, 'test-js.yml', 'Run JS tests');
+  const jsr = jsr_name ? `[![JSR version](https://jsr.io/badges/${jsr_name})](https://jsr.io/${jsr_name}) [![JSR Score](https://jsr.io/badges/${jsr_name}/score)](https://jsr.io/${jsr_name})` : '';
+  const misc = misc_list[pkg] ?? '';
+
+  return `| ${pkg} | ${ci} | ${jsr} | ${misc} |`;
+}
+
+buildTable(Object.keys(gh_jsr));
