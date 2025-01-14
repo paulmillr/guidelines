@@ -2,11 +2,36 @@
 
 Development & release guidelines for noble (https://paulmillr.com/noble), scure and other packages.
 
+- [Status](#status)
 - [Release order](#release-order)
 - [Coding practices](#coding-practices)
 - [Duplicated code](#duplicated-code)
 - [Testing and fuzzing](#testing-and-fuzzing)
 - [TODO](#todo)
+
+## Status
+
+| Project | Status |
+|--------|-------|
+| noble-ciphers | [![Run JS tests](https://github.com/paulmillr/noble-ciphers/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/noble-ciphers/actions/workflows/test-js.yml) |
+| noble-curves | [![Run JS tests](https://github.com/paulmillr/noble-curves/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/noble-curves/actions/workflows/test-js.yml) |
+| noble-hashes | [![Run JS tests](https://github.com/paulmillr/noble-hashes/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/noble-hashes/actions/workflows/test-js.yml) |
+| noble-post-quantum | [![Run JS tests](https://github.com/paulmillr/noble-post-quantum/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/noble-post-quantum/actions/workflows/test-js.yml) |
+| noble-secp256k1 | [![Run JS tests](https://github.com/paulmillr/noble-secp256k1/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/noble-secp256k1/actions/workflows/test-js.yml) |
+| noble-ed25519 | [![Run JS tests](https://github.com/paulmillr/noble-ed25519/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/noble-ed25519/actions/workflows/test-js.yml) |
+| scure-base | [![Run JS tests](https://github.com/paulmillr/scure-base/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/scure-base/actions/workflows/test-js.yml) |
+| scure-bip32 | [![Run JS tests](https://github.com/paulmillr/scure-bip32/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/scure-bip32/actions/workflows/test-js.yml) |
+| scure-bip39 | [![Run JS tests](https://github.com/paulmillr/scure-bip39/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/scure-bip39/actions/workflows/test-js.yml) |
+| scure-btc-signer | [![Run JS tests](https://github.com/paulmillr/scure-btc-signer/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/scure-btc-signer/actions/workflows/test-js.yml) |
+| scure-starknet | [![Run JS tests](https://github.com/paulmillr/scure-starknet/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/scure-starknet/actions/workflows/test-js.yml) |
+| micro-eth-signer | [![Run JS tests](https://github.com/paulmillr/micro-eth-signer/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/micro-eth-signer/actions/workflows/test-js.yml) |
+| micro-sol-signer | [![Run JS tests](https://github.com/paulmillr/micro-sol-signer/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/micro-sol-signer/actions/workflows/test-js.yml) |
+| micro-ordinals | [![Run JS tests](https://github.com/paulmillr/micro-ordinals/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/micro-ordinals/actions/workflows/test-js.yml) |
+| micro-key-producer | [![Run JS tests](https://github.com/paulmillr/micro-key-producer/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/micro-key-producer/actions/workflows/test-js.yml) |
+| micro-packed | [![Run JS tests](https://github.com/paulmillr/micro-packed/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/micro-packed/actions/workflows/test-js.yml) |
+| micro-ftch | [![Run JS tests](https://github.com/paulmillr/micro-ftch/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/micro-ftch/actions/workflows/test-js.yml) |
+| qr | [![Run JS tests](https://github.com/paulmillr/qr/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/qr/actions/workflows/test-js.yml) |
+| micro-sr25519 | [![Run JS tests](https://github.com/paulmillr/micro-sr25519/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/micro-sr25519/actions/workflows/test-js.yml) |
 
 ## Release order
 
