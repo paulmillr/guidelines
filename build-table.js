@@ -44,7 +44,7 @@ function badges(pkg) {
   const jsr = jsr_name ? `[![JSR version](https://jsr.io/badges/${jsr_name})](https://jsr.io/${jsr_name}) [![JSR Score](https://jsr.io/badges/${jsr_name}/score)](https://jsr.io/${jsr_name})` : '';
   const misc = misc_list[pkg] ?? '';
 
-  return `| ${pkg} | ${ci} | ${jsr} | ${misc} |`;
+  return `| [${pkg}](https://github.com/${user}/${pkg}) | ${ci} | ${jsr} | ${misc} |`;
 }
 
 buildTable(Object.keys(gh_jsr));
