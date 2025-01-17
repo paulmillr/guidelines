@@ -18,7 +18,7 @@ const gh_jsr = {
   'micro-ordinals': '',
   'micro-key-producer': '@paulmillr/micro-key-producer',
   'micro-packed': '@paulmillr/micro-packed',
-  'micro-ftch': '',
+  'micro-ftch': '@paulmillr/micro-ftch',
   'qr': '@paulmillr/qr',
   'micro-sr25519': ''
 };

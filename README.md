@@ -11,6 +11,7 @@ Development & release guidelines for noble (https://paulmillr.com/noble), scure 
 
 ## Status
 
+
 | Project | Status | JSR | Misc |
 |---------|--------|-----|------|
 | [noble-ciphers](https://github.com/paulmillr/noble-ciphers) | [![Run JS tests](https://github.com/paulmillr/noble-ciphers/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/noble-ciphers/actions/workflows/test-js.yml) | [![JSR version](https://jsr.io/badges/@noble/ciphers)](https://jsr.io/@noble/ciphers) [![JSR Score](https://jsr.io/badges/@noble/ciphers/score)](https://jsr.io/@noble/ciphers) |  |
@@ -29,7 +30,7 @@ Development & release guidelines for noble (https://paulmillr.com/noble), scure 
 | [micro-ordinals](https://github.com/paulmillr/micro-ordinals) | [![Run JS tests](https://github.com/paulmillr/micro-ordinals/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/micro-ordinals/actions/workflows/test-js.yml) |  |  |
 | [micro-key-producer](https://github.com/paulmillr/micro-key-producer) | [![Run JS tests](https://github.com/paulmillr/micro-key-producer/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/micro-key-producer/actions/workflows/test-js.yml) | [![JSR version](https://jsr.io/badges/@paulmillr/micro-key-producer)](https://jsr.io/@paulmillr/micro-key-producer) [![JSR Score](https://jsr.io/badges/@paulmillr/micro-key-producer/score)](https://jsr.io/@paulmillr/micro-key-producer) |  |
 | [micro-packed](https://github.com/paulmillr/micro-packed) | [![Run JS tests](https://github.com/paulmillr/micro-packed/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/micro-packed/actions/workflows/test-js.yml) | [![JSR version](https://jsr.io/badges/@paulmillr/micro-packed)](https://jsr.io/@paulmillr/micro-packed) [![JSR Score](https://jsr.io/badges/@paulmillr/micro-packed/score)](https://jsr.io/@paulmillr/micro-packed) |  |
-| [micro-ftch](https://github.com/paulmillr/micro-ftch) | [![Run JS tests](https://github.com/paulmillr/micro-ftch/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/micro-ftch/actions/workflows/test-js.yml) |  |  |
+| [micro-ftch](https://github.com/paulmillr/micro-ftch) | [![Run JS tests](https://github.com/paulmillr/micro-ftch/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/micro-ftch/actions/workflows/test-js.yml) | [![JSR version](https://jsr.io/badges/@paulmillr/micro-ftch)](https://jsr.io/@paulmillr/micro-ftch) [![JSR Score](https://jsr.io/badges/@paulmillr/micro-ftch/score)](https://jsr.io/@paulmillr/micro-ftch) |  |
 | [qr](https://github.com/paulmillr/qr) | [![Run JS tests](https://github.com/paulmillr/qr/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/qr/actions/workflows/test-js.yml) | [![JSR version](https://jsr.io/badges/@paulmillr/qr)](https://jsr.io/@paulmillr/qr) [![JSR Score](https://jsr.io/badges/@paulmillr/qr/score)](https://jsr.io/@paulmillr/qr) |  |
 | [micro-sr25519](https://github.com/paulmillr/micro-sr25519) | [![Run JS tests](https://github.com/paulmillr/micro-sr25519/actions/workflows/test-js.yml/badge.svg)](https://github.com/paulmillr/micro-sr25519/actions/workflows/test-js.yml) |  |  |
 
@@ -50,22 +51,22 @@ After that, 6. pull requests to consumers (such as ethereumjs-monorepo) can also
 ## Coding practices
 
 - Don't use bigint literals: instead of `123n`, use `BigInt(123)` or `BigInt('123')`
-    - For compatibility with React Native and others
+  - For compatibility with React Native and others
 - Don't use array destruction, such as `let [a, b] = arr`
-    - It overloads GC when used often, because it calls iterator protocol
-    - Object destruction `{a, b} = obj` is fine
+  - It overloads GC when used often, because it calls iterator protocol
+  - Object destruction `{a, b} = obj` is fine
 - Minimize `for-of`
-    - Also uses iterator protocol, sometimes slow
+  - Also uses iterator protocol, sometimes slow
 - Minimize backtick quotes
-    - Unfriendly to minifiers, sometimes even unsupported in subtle ways
+  - Unfriendly to minifiers, sometimes even unsupported in subtle ways
 - Don't use `\n` in strings: prefer `String.fromCharCode(10)`
-    - Unfriendly to minifiers
+  - Unfriendly to minifiers
 - Typescript and prettier updates should be limited to once per 3-6 months
-    - Their version diffs should be sanity-checked
+  - Their version diffs should be sanity-checked
 - Helper packages are used to simplify development
-    - paulmillr/jsbt is used to build files
-    - micro-should is tiny 300-line testing framework
-    - micro-bmark is tiny benchmarking framework
+  - paulmillr/jsbt is used to build files
+  - micro-should is tiny 300-line testing framework
+  - micro-bmark is tiny benchmarking framework
 
 ## Duplicated code
 
@@ -74,9 +75,9 @@ Some code is duplicated between packages, because it's better than adding an add
 Every time a method is changed, it should also be changed in other places.
 
 - `hexToBytes`, `bytesToHex`, `concatBytes`, `isBytes` / `abytes` are identical within:
-    - noble curves, ciphers, hashes
-    - noble secp256k1, ed25519 (vars renamed for compactness)
-    - scure-base, micro-packed
+  - noble curves, ciphers, hashes
+  - noble secp256k1, ed25519 (vars renamed for compactness)
+  - scure-base, micro-packed
 - Tests for `hexToBytes`, `bytesToHex`, `concatBytes` must be present within all those packages
 
 ## Testing and fuzzing
@@ -92,7 +93,6 @@ Every time a method is changed, it should also be changed in other places.
 
 New CI tasks:
 
-- Calculate coverage. Can be done by switching from micro-should to jest
 - Compare NPM code to GitHub
 - Scan NPM for malware
 - Check for performance regressions, compare with previous commits / releases
