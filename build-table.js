@@ -15,7 +15,7 @@ const gh_jsr = {
 
   "micro-eth-signer": "@paulmillr/micro-eth-signer",
   "micro-sol-signer": "@paulmillr/micro-sol-signer",
-  "micro-ordinals": "@paulmillr/micro-ordinals",
+  "micro-ordinals": "",
   "micro-key-producer": "@paulmillr/micro-key-producer",
   "micro-packed": "@paulmillr/micro-packed",
   "micro-ftch": "@paulmillr/micro-ftch",
@@ -26,6 +26,11 @@ const misc_list = {
   "noble-hashes": gh_action("noble-hashes", "test-slow.yml", "Run slow tests"),
   "noble-ciphers": gh_action(
     "noble-ciphers",
+    "test-slow.yml",
+    "Run slow tests"
+  ),
+  "scure-btc-signer": gh_action(
+    "scure-btc-signer",
     "test-slow.yml",
     "Run slow tests"
   ),
